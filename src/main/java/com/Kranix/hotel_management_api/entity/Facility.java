@@ -1,0 +1,18 @@
+package com.Kranix.hotel_management_api.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "facility")
+public class Facility {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(length = 100,nullable = false,name = "name")
+    private String name;
+
+    @ManyToOne()
+    @JoinColumn(name = "room_id")
+    private Room room;
+}
